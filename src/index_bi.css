@@ -1,0 +1,33 @@
+.label {
+  cursor: pointer;
+  background-color: #fea202;
+  z-index: 21;
+  opacity: 1;
+  width: 15px;
+  height: 11px;
+  background: url("./assets/Icon.png");
+  background-size: 15px 11px;
+  animation: pulsing 2s infinite;
+  border-radius: 6px;
+  transform: translate3d(0);
+}
+.label.jtk-overlay {
+  background-color: #fea202;
+}
+.label.jtk-hover {
+  background-color: #fea202;
+  color: white;
+  border: 1px solid white;
+  border-radius: 6px;
+}
+@keyframes pulsing {
+  from {
+    box-shadow: 0 0 0 0 #faae2b;
+  }
+  70% {
+    box-shadow: 0 0 0 3px rgba(248, 174, 63, 0.506);
+  }
+  to {
+    box-shadow: 0 0 0 0 rgba(248, 174, 63, 0.506);
+  }
+}
