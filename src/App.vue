@@ -28,6 +28,7 @@ export default {
         resizable: true
       });
       jsPlumb.connect(leftId,rightId,{
+        animate : true,
         label : {
           location: 0.5,
           cssClass: "label",
@@ -148,8 +149,9 @@ body {
   align-items: center;
   justify-content: center;
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.14);
+  background-color: rgba(255, 255, 255, 0.94);
   opacity: 0.8;
+  z-index:30;
   border-radius: 4px;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.12);
 }

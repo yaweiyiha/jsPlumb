@@ -31,3 +31,16 @@
     box-shadow: 0 0 0 0 rgba(248, 174, 63, 0.506);
   }
 }
+
+#path {
+  animation: move 3s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    stroke-dasharray: 0, 511px;
+  }
+  100% {
+    stroke-dasharray: 511px, 0;
+  }
+}

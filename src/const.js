@@ -6,6 +6,10 @@ const Const = {
     strokeWidth: 1.2,
     width: 1,
     zIndex: 10,
+    "stroke-linejoin": "miter",
+    "stroke-dasharray": "3px, 1px",
+    "stroke-dashoffset": 0,
+    id: "path",
   },
   endpointStyle: {
     stroke: "#017EFF",
@@ -14,6 +18,7 @@ const Const = {
     strokeWidth: 1,
     width: 6,
     height: 6,
+    "stroke-linejoin": "miter",
   },
   connectorPaintStyle: {
     strokeWidth: 1.2,
