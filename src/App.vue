@@ -1,120 +1,118 @@
 <template>
-  <div  class="container" id="container"></div>
+<div class="app">
+  <p class="title">可视化库API文档及验收</p>
+  <div class="desc-wrapper">
+    <h1>工作内容</h1>
+    <p>jsPlumb二次封装，包含：API封装，渲染性能优化，自定义动画添加</p>
+    <p>API文档产出</p>
+  </div>
+  
+  <BI/>
+  <Qianzhiji/>
+  <div class="desc-wrapper" style="margin-top:80px;padding-bottom:100px;">
+    <h1>初始化</h1>
+    <div class="code">const jsPlumb = new jsplumb({container: 'container'});</div>
+    <h1>API</h1>
+    <h2>addNode</h2>
+    在画布上添加节点
+    <table width="50%">
+        <tr>
+          <th>名称</th>
+          <th>类型</th>
+          <th>说明</th>
+        </tr>
+        <tr>
+          <td>element</td> 
+          <td>html dom</td>
+          <td>添加画布的元素</td>
+        </tr>
+        <tr>
+          <td>opt</td> 
+          <td>Object</td>
+          <td>
+            <tr>draggble:是否可拖拽，默认为false</tr>
+            <tr>resizeble:是否可改变大小,默认为false</tr>
+            <tr>addPoints:添加端点，设置位置['left','right','top','bottom']</tr>
+          </td>
+        </tr>
+    </table>
+    <h2>deleteNode</h2>
+    在画布上删除节点
+    <table width="50%">
+        <tr>
+          <th>名称</th>
+          <th>类型</th>
+          <th>说明</th>
+        </tr>
+        <tr>
+          <td>element</td> 
+          <td>html dom</td>
+          <td>删除画布的元素</td>
+        </tr>
+    </table>
+    <h2>setStyle</h2>
+    设置画布上元素通用样式，
+    <table width="50%">
+        <tr>
+          <th>名称</th>
+          <th>类型</th>
+          <th>说明</th>
+        </tr>
+        <tr>
+          <td>styles</td> 
+          <td>Object</td>
+          <td>包含节点样式，连线样式，覆盖物(label,箭头)样式，不设置采用通用样式主题</td>
+        </tr>
+    </table>
+    <h2>connect</h2>
+    连线
+    <table width="50%">
+        <tr>
+          <th>名称</th>
+          <th>类型</th>
+          <th>说明</th>
+        </tr>
+        <tr>
+          <td>source</td> 
+          <td>String</td>
+          <td>源节点id</td>
+        </tr>
+        <tr>
+          <td>target</td> 
+          <td>String</td>
+          <td>目标节点id</td>
+        </tr>
+        <tr>
+          <td>opt</td> 
+          <td>Object</td>
+          <td>
+            <th>animate：是否添加动画</th>
+            <th>label: 添加label.及label的具体样式</th>
+            <th></th>
+          </td>
+        </tr>
+    </table>
+  </div>
+</div>
+
 </template>
 <script>
 import jsplumb from "./jsplumb";
 import $ from "jquery";
-import qConst from "./qianzhiji_const";
-import Const from "./const";
+import qConst from "./const/qianzhiji_const";
+import Const from "./const/const";
+import "./css/index_bi.css";
+import "./css/index_qianzhiji.css";
+import BI from "./html/bi"
+import Qianzhiji from "./html/qianzhiji"
 
 export default {
   name: "App",
   components: {
-    //HelloWorld
+    BI,
+    Qianzhiji
   },
   mounted: () => {
-    const leftEle = $(`<div class="item"><button class="remove">X</button></div>`);
-    const rightEle = $(`<div class="item right_item"><button class="remove">X</button></div>`);
-
-    const jsPlumb = new jsplumb({const: Const, container: '.container'});
-    jsPlumb.on("ready", function() {
-
-      const leftId = jsPlumb.addNode(leftEle, {
-        draggble: true,
-        resizable: true
-      });
-      const rightId = jsPlumb.addNode(rightEle, {
-        draggble: true,
-        resizable: true
-      });
-      jsPlumb.connect(leftId,rightId,{
-        animate : true,
-        label : {
-          location: 0.5,
-          cssClass: "label",
-          visible: true,
-        }
-      });
-    });
-
-    // const leftEle = $(
-    // `<div class="qianzhiji-root">
-    //   <div class="qianzhiji-label">四川省人大</div>
-    // </div>`)
-    // const rightEle1 = $(
-    // `<div class=" rightEle rightEle-root1">
-    //   <div class="rightEle-label">税务局</div>
-    // </div>`)
-    // const rightEle2 = $(
-    // `<div class=" rightEle rightEle-root2">
-    //   <div class="rightEle-label">审计厅</div>
-    // </div>`)
-    //   const rightEle3 = $(
-    // `<div class=" rightEle rightEle-root3">
-    //   <div class="rightEle-label">审计厅</div>
-    // </div>`)
-
-
-    // const bottomEle1 = $(
-    // `<div class=" rightEle bottomEle-root1">
-    //   <div class="rightEle-label">税务局</div>
-    // </div>`)
-    // const bottomEle2 = $(
-    // `<div class=" rightEle bottomEle-root2">
-    //   <div class="rightEle-label">审计厅</div>
-    // </div>`)
-    //   const bottomEle3 = $(
-    // `<div class=" rightEle bottomEle-root3">
-    //   <div class="rightEle-label">审计厅</div>
-    // </div>`)
-
-    // const jsPlumb = new jsplumb({const:qConst,container: '.container'});
-    // jsPlumb.on("ready", function() {
-
-    //   const leftId = jsPlumb.addNode(leftEle, {
-    //     resizable: true,
-    //     addEndPoint:['left','right']
-    //   });
-    //   const rightId1 = jsPlumb.addNode(rightEle1, {
-    //     resizable: true
-    //   });
-    //   const rightId2 = jsPlumb.addNode(rightEle2, {
-    //     resizable: true
-    //   });
-    //   const rightId3 = jsPlumb.addNode(rightEle3, {
-    //     resizable: true
-    //   });
-
-
-    //   const bottomId1 = jsPlumb.addNode(bottomEle1, {
-    //     resizable: true
-    //   });
-    //   const bottomId2 = jsPlumb.addNode(bottomEle2, {
-    //     resizable: true
-    //   });
-    //   const bottomId3 = jsPlumb.addNode(bottomEle3, {
-    //     resizable: true
-    //   });
-    //   jsPlumb.connect(leftId,rightId3,{paintStyle:{    
-    //     stroke: "#F56C6C",
-    //     // fill: "#017EFF",
-    //     zIndex:12,
-    //     radius: 7,
-    //     strokeWidth: 1.4,
-    //     width: 1,}});
-    //   jsPlumb.connect(leftId,rightId1,{});
-    //   jsPlumb.connect(leftId,rightId2,{});
-
-    //   jsPlumb.connect(leftId,bottomId1,{});
-    //   jsPlumb.connect(leftId,bottomId2,{});
-    //   jsPlumb.connect(leftId,bottomId3,{});
-
-    //   // $('.container').on('click', '.remove', ()=>{
-    //   //   jsPlumb.deleteNode(leftId)
-    //   // })
-    // });
-
-
   },
 };
 </script>
@@ -127,99 +125,46 @@ body {
   margin: 0;
   bottom: 0;
 }
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+.app {
   color: #2c3e50;
-  display: flex;
   width: 100%;
   height: 100vh;
 }
-.item {
-  width: 150px;
-  position: absolute;
-  height: 150px;
-  background-color: #ddd;
-  border: 1px solid #017EFF;
-  width: 80px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.94);
-  opacity: 0.8;
-  z-index:30;
-  border-radius: 4px;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.12);
+.title{
+  font-size:35px;
+  width:100%;
+  text-align: center;
+  margin : 0;
 }
-.right_item {
-  position: absolute;
-  left: 500px;
+.desc-wrapper{
+  padding:0px 50px;
 }
-.endpointTargetLabel {
-  z-index: 21;
-  cursor: pointer;
-  font-size: 10px;
+table {
+  border-collapse: collapse;
+  width: 80%;
+  border: 1px solid #cfd0c9;
+  margin-top:20px;
 }
-.qianzhiji-root{
-  background: url("./assets/root.png");
-  background-size: 150px 150px;
-  width:150px;
-  height:150px;
-  position: relative;
-}
-.qianzhiji-label{
-  color :#fff;
-  background: #4553C7;
-  padding : 4px 10px;
-  position: absolute;
-  top: 97px;
-  left: 24px;
-}
-.rightEle{
-   background: url("./assets/connect.png");
-  background-size: 60px 75px;
-  width:60px;
-  height:75px;
-  position: absolute;
- 
-
-}
-.rightEle-label{
-  color :#fff;
-  background: #4553C7;
-  padding : 4px 10px;
-  position: absolute;
-  font-size:12px;
-  top: 97px;
-  left: 24px;
-
-}
-.rightEle-root1{
-  left: 600px;
-}
-.rightEle-root2{
-  top: 150px;
-   left: 600px;
-}
-.rightEle-root3{
-  left: 600px;
-  top: 300px;
-}
-.bottomEle-root1{
-  top: 400px;
-}
-.bottomEle-root2{
-  left: 150px;
-  top : 400px;
-}
-.bottomEle-root3{
-  top: 400px;
-  left : 300px;
+table th,
+table td {
+  padding: 10px;
+  text-align: center;
 }
 
+tr,th {
+  border-bottom: 1px solid #cfd0c9;
+}
+table td {
+   border-right: 1px solid #cfd0c9;
+}
+td tr {
+  width :100%;
+}
+.code{
+  background-color: #f4f5f1;
+  color:rgb(14, 17, 17);
+  width:80%;
+  padding:10px;
+}
 
 </style>

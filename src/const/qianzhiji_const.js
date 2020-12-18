@@ -1,15 +1,20 @@
-const Const = {
+const qConst = {
   paintStyle: {
-    stroke: "#017EFF",
+    stroke: "#4553C7",
     // fill: "#017EFF",
     radius: 7,
-    strokeWidth: 1.2,
+    strokeWidth: 1.4,
     width: 1,
-    zIndex: 10,
-    "stroke-linejoin": "miter",
-    "stroke-dasharray": "3px, 1px",
-    "stroke-dashoffset": 0,
-    id: "path",
+    zIndex: 22,
+    id: "",
+    // gradient: {
+    //   stops: [
+    //     [0, "#0d78bc"],
+    //     [1, "#558822"],
+    //   ],
+    // },
+    outlineStroke: "#017EFF",
+    outlineWidth: 0.5,
   },
   endpointStyle: {
     stroke: "#017EFF",
@@ -18,15 +23,13 @@ const Const = {
     strokeWidth: 1,
     width: 6,
     height: 6,
-    "stroke-linejoin": "miter",
   },
   connectorPaintStyle: {
     strokeWidth: 1.2,
     joinstyle: "round",
     outlineStroke: "white",
     outlineWidth: 1,
-    stroke: "#017EFF",
-    zIndex: 10,
+    stroke: "#4553C7",
     // fill: "#017EFF",
   },
   connectorHoverStyle: {
@@ -36,8 +39,8 @@ const Const = {
     outlineStroke: "rgb(227, 236, 248)",
   },
   endpointHoverStyle: {
-    stroke: "#017EFF",
+    // stroke: "#017EFF",
   },
 };
 
-export default Const;
+export default qConst;

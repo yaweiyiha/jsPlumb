@@ -5,7 +5,21 @@
   opacity: 1;
   width: 15px;
   height: 11px;
-  background: url("./assets/Icon.png");
+  background: url("../assets/Icon.png");
+  background-size: 15px 11px;
+  animation: pulsing 2s infinite;
+  border-radius: 6px;
+  transform: translate3d(0);
+}
+
+.blabel {
+  cursor: pointer;
+  background-color: #fea202;
+  z-index: 21;
+  opacity: 1;
+  width: 15px;
+  height: 11px;
+  background: url("../assets/lconnect.png");
   background-size: 15px 11px;
   animation: pulsing 2s infinite;
   border-radius: 6px;
@@ -32,7 +46,7 @@
   }
 }
 
-#path {
+/* #path {
   animation: move 3s linear infinite;
 }
 
@@ -43,4 +57,4 @@
   100% {
     stroke-dasharray: 511px, 0;
   }
-}
+} */

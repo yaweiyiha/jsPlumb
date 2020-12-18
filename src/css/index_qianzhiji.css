@@ -1,0 +1,45 @@
+.demo1 svg path {
+  stroke-width: 1.4;
+  animation: move1 3s linear infinite;
+}
+
+@keyframes move1 {
+  0% {
+    stroke-dasharray: 0, 800px;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dasharray: 800px, 0;
+  }
+}
+
+.demo2 svg path:nth-child(1) {
+  stroke-width: 2;
+  stroke: rgba(17, 95, 119, 0.4);
+}
+
+.demo2 svg path:nth-child(2) {
+  stroke-dasharray: 10;
+  stroke-dashoffset: 0;
+  stroke-width: 2;
+  animation: move2 2s linear infinite;
+}
+
+@keyframes move2 {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -50;
+  }
+}
+
+.demo1 svg #unanimation,
+.demo2 svg #unanimation {
+  stroke-width: 1.4;
+  animation: move2 0s linear infinite;
+  stroke: #f56c6c;
+}
+
+/* @keyframes move3 {
+} */
